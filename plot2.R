@@ -10,13 +10,16 @@ data <- read.table("household_power_consumption.txt",
 #send the plot to a png device
 png(file = "plot2.png")
 
+#convert the Date and Time columns (below is day... need minutes)
+as.Date(V2, format = "%a")
+
 #create an empty plot
 plot(data$V3, data$V2, type = "n", ylab = "Global Active Power (kilowatts)")
 
 #fill in plot with a line graph
 line(data$V3, data$V2) 
     
-#add Thu Fri Sat and tick lines on the x axis
+#add Thu Fri Sat and tick lines to the x axis
 axis.Date()
 
 dev.off()
